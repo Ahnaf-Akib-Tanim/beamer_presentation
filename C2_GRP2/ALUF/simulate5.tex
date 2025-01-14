@@ -1,0 +1,67 @@
+\documentclass{beamer}
+\usetheme{ALUF}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+% Color definitions
+\definecolor{lightblue}{rgb}{0.678, 0.847, 0.902}
+\definecolor{graylight}{rgb}{0.8, 0.8, 0.8}
+\definecolor{orange}{rgb}{1.0, 0.647, 0.0}
+\definecolor{green}{rgb}{0.0, 1.0, 0.0}
+\definecolor{red}{rgb}{1.0, 0.0, 0.0}
+\usetikzlibrary{shadows.blur}
+\usepackage{lmodern}
+\usepackage[expert]{mathdesign}
+\usepackage[protrusion=true,expansion=true,tracking=true,kerning=true]{microtype}
+\title{Randomized Algorithms}
+\subtitle{Sometimes Randomness is faster}
+\author{Tanim, Masud, Rumman}
+\date{\today}
+\institute{\url{email@some-cool-place.ext}\\\url{http://www.cool-url.com}}
+\begin{document}
+
+\begin{frame}[t]{Example}
+    \begin{columns}[T]
+        \begin{column}{0.95\textwidth}
+            \begin{exampleblock}{}
+                \scriptsize
+                \begin{tabular}{l}
+                    \hspace{0.5cm} \textcolor{red}{pivot} $\gets A[high]$ \\[0.1cm]
+                    \hspace{0.5cm} \textcolor{orange}{i} $\gets low - 1$ \\[0.1cm]
+                    \hspace{0.5cm} \textbf{for} $\textcolor{orange}{j} = low$ \textbf{to} $high - 1$ \textbf{do} \\[0.1cm]
+                    \hspace{1cm} \textbf{if} $A[j] \leq \textcolor{red}{pivot}$ \textbf{then} \\[0.1cm]
+                    \hspace{1.5cm} \tikz[baseline]{\node[anchor=base, draw=none, fill=lightgray, blur shadow={shadow blur steps=5}] {\Large \textcolor{orange}{i $\gets$ i + 1}};} \\[0.1cm]
+                    \hspace{1.5cm} \tikz[baseline]{\node[anchor=base, draw=none, fill=lightgray, blur shadow={shadow blur steps=5}] {\textcolor{green}{Swap}(A[i], A[j]);};} \\[0.2cm]
+                    \hspace{1cm} \textbf{end if} \\[0.1cm]
+                    \hspace{0.5cm} \textbf{end for} \\[0.1cm]
+                    \hspace{0.5cm} \textcolor{green}{Swap}(A[i+1], A[high]) \\[0.1cm]
+                    \hspace{0.5cm} \textbf{return} \textcolor{orange}{i + 1}
+                \end{tabular}
+            \end{exampleblock}
+        \end{column}
+    \end{columns}
+    \vspace{0.1cm}
+
+    \begin{center}
+    \small
+    \textbf{Pivot}: \tikz\draw[fill=lightblue, minimum width=0.4cm, minimum height=0.4cm] (0,0) rectangle (0.2,0.2);
+    \textbf{i}: \tikz\draw[fill=orange, minimum width=0.4cm, minimum height=0.4cm] (0,0) rectangle (0.2,0.2);
+    \textbf{j}: \tikz\draw[fill=green, minimum width=0.4cm, minimum height=0.4cm] (0,0) rectangle (0.2,0.2);
+    \textbf{Swap}: \tikz\draw[fill=black, minimum width=0.4cm, minimum height=0.4cm] (0,0) rectangle (0.2,0.2);
+    \end{center}
+    \vspace{-0.2cm}
+    \hspace*{-1.5cm}
+    \begin{tikzpicture}[transform canvas={scale=0.9}]
+        \node[draw, fill=graylight, minimum width=0.9cm, minimum height=0.9cm] (a2) at (3,0) {2};
+        \node[draw, fill=orange, minimum width=1.2cm, minimum height=1.2cm] (a3) at (5,0) {4};
+        \node[draw, fill=graylight, minimum width=0.9cm, minimum height=0.9cm] (a4) at (7,0) {5};
+        \node[draw, fill=green, blur shadow={shadow blur steps=-1},minimum width=1.2cm, minimum height=1.2cm] (a5) at (9,0) {1};
+        \node[draw, fill=lightblue, minimum width=0.9cm, minimum height=0.9cm] (a6) at (11,0) {3};
+        \draw[->, thick, bend left=45] (a3) to node[above, sloped, midway] {Swap} (a5);
+    \end{tikzpicture}
+  \hspace*{-2cm}  
+    
+    \vspace{0.3cm}
+\end{frame}
+
+\end{document}

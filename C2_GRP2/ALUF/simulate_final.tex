@@ -1,0 +1,67 @@
+\documentclass{beamer}
+\usetheme{ALUF}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+% Color definitions
+\definecolor{lightblue}{rgb}{0.678, 0.847, 0.902}
+\definecolor{graylight}{rgb}{0.8, 0.8, 0.8}
+\definecolor{orange}{rgb}{1.0, 0.647, 0.0}
+\definecolor{green}{rgb}{0.0, 1.0, 0.0}
+\definecolor{red}{rgb}{1.0, 0.0, 0.0}
+\usetikzlibrary{shadows.blur}
+\usepackage{lmodern}
+\usepackage[expert]{mathdesign}
+\usepackage[protrusion=true,expansion=true,tracking=true,kerning=true]{microtype}
+\title{Randomized Algorithms}
+\subtitle{Sometimes Randomness is faster}
+\author{Tanim, Masud, Rumman}
+\date{\today}
+\institute{\url{email@some-cool-place.ext}\\\url{http://www.cool-url.com}}
+\begin{document}
+
+\begin{frame}[t]{Example}
+   \vspace{1cm}
+    \hspace{-1.5cm}
+\begin{tikzpicture}[transform canvas={scale=0.9}]
+    % First row nodes
+    \node[draw, fill=graylight, minimum width=0.9cm, minimum height=0.9cm] (a2) at (3,0) {2};
+    \node[draw, fill=graylight, minimum width=0.9cm, minimum height=0.9cm] (a3) at (5,0) {1};
+    \node[draw, fill=lightblue, blur shadow={shadow blur steps=-1}, minimum width=1.2cm, minimum height=1.2cm] (a4) at (7,0) {3};
+    \node[draw, fill=graylight, minimum width=0.9cm, minimum height=0.9cm] (a5) at (9,0) {5};
+    \node[draw, fill=graylight, minimum width=0.9cm, minimum height=0.9cm] (a6) at (11,0) {4};
+    \node[above=0.1cm, text=red, font=\bfseries\Large] at (a4.north) {Pivot};
+
+    % Brackets for the first row
+    \draw[ultra thick] (2.6,-0.5) -- (2.6,-0.7) -- (5.4,-0.7) -- (5.4,-0.5); % First bracket
+    \draw[ultra thick] (8.6,-0.5) -- (8.6,-0.7) -- (11.4,-0.7) -- (11.4,-0.5); % Second bracket
+
+    % Second row nodes
+    \node[draw, fill=lightblue, blur shadow={shadow blur steps=-1}, minimum width=1.2cm, minimum height=1.2cm] (a7) at (3,-2) {1};
+    \node[draw, fill=graylight, minimum width=0.9cm, minimum height=0.9cm] (a8) at (5,-2) {2};
+    \node[draw, fill=lightblue, blur shadow={shadow blur steps=-1}, minimum width=1.2cm, minimum height=1.2cm] (a9) at (9,-2) {4};
+    \node[draw, fill=graylight, minimum width=0.9cm, minimum height=0.9cm] (a10) at (11,-2) {5};
+
+    % Bracket for the second row
+    \draw[ultra thick] (4.6,-2.5) -- (4.6,-2.7) -- (5.4,-2.7) -- (5.4,-2.5); % Bracket under a8
+    \draw[ultra thick] (10.6,-2.5) -- (10.6,-2.7) -- (11.4,-2.7) -- (11.4,-2.5); % Bracket under a10
+
+    % Third row nodes
+    \node[draw, fill=lightblue, blur shadow={shadow blur steps=-1}, minimum width=1.2cm, minimum height=1.2cm] (a11) at (5,-4) {2};
+    \node[draw, fill=lightblue, blur shadow={shadow blur steps=-1}, minimum width=1.2cm, minimum height=1.2cm] (a12) at (11,-4) {5};
+
+    % Bracket for the third row
+    \draw[ultra thick] (4.6,-4.5) -- (4.6,-4.7) -- (5.4,-4.7) -- (5.4,-4.5); % Bracket under a11
+    \draw[ultra thick] (10.6,-4.5) -- (10.6,-4.7) -- (11.4,-4.7) -- (11.4,-4.5); % Bracket under a12
+  \node at (8,-5) {\includegraphics[width=3.5cm, keepaspectratio]{beamer-themes-master/ALUF/done.png}};
+
+
+\end{tikzpicture}
+
+
+\vspace{0.9cm}
+\end{frame}
+
+
+
+\end{document}
